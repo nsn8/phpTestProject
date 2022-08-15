@@ -1,13 +1,14 @@
 <?php
 
-include 'Classes/DatabaseManager.php';
-include 'Classes/DatabaseRepository.php';
-include 'Classes/DatabasePopulator.php';
-include 'Classes/Sender.php';
-include 'Classes/Checker.php';
-include 'Classes/SmsnaviProvider.php';
-include 'Classes/SmszatorProviderWithTracking.php';
-include 'Classes/SmszatorProviderWithoutTracking.php';
+include_once 'Classes/DatabaseManager.php';
+include_once 'Classes/DatabaseRepository.php';
+include_once 'Classes/DatabasePopulator.php';
+include_once 'Classes/Sender.php';
+include_once 'Classes/Checker.php';
+include_once 'Classes/SmsnaviProvider.php';
+include_once 'Classes/SmszatorProviderWithTracking.php';
+include_once 'Classes/SmszatorProviderWithoutTracking.php';
+include_once 'Classes/HTTPSender.php';
 
 unset($argv[0]);
 

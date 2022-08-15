@@ -1,8 +1,8 @@
 <?php
 
-include 'Classes/DatabaseRepository.php';
-include 'Classes/SmszatorProvider.php';
-include 'Classes/SmsnaviProvider.php';
+include_once 'Classes/DatabaseRepository.php';
+include_once 'Classes/SmszatorProvider.php';
+include_once 'Classes/SmsnaviProvider.php';
 
 class Sender
 {

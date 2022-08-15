@@ -1,8 +1,8 @@
 <?php
 
-include 'Classes/DatabaseManager.php';
-include 'Types/MessageStatus.php';
-include 'Types/Provider.php';
+include_once 'Classes/DatabaseManager.php';
+include_once 'Types/MessageStatus.php';
+include_once 'Types/Provider.php';
 
 class DatabaseRepository
 {

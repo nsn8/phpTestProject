@@ -1,7 +1,7 @@
 <?php
 
-include 'Classes/SmszatorProvider.php';
-include 'Classes/SmsnaviProvider.php';
+include_once 'Classes/SmszatorProvider.php';
+include_once 'Classes/SmsnaviProvider.php';
 
 class Checker
 {

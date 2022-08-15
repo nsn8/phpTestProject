@@ -1,6 +1,6 @@
 <?php
 
-include 'Classes/DatabaseManager.php';
+include_once 'Classes/DatabaseManager.php';
 
 class DatabasePopulator
 {
@@ -52,7 +52,7 @@ class DatabasePopulator
                 phone bigint,
                 text int,
                 status int,
-                tracking_id bigint DEFAULT NULL 
+                tracking_id bigint DEFAULT NULL,
                 FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
                 FOREIGN KEY (text) REFERENCES message_texts(id) ON DELETE CASCADE ON UPDATE CASCADE
             )

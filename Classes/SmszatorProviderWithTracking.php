@@ -1,5 +1,10 @@
 <?php
 
+include_once 'Classes/HTTPSender.php';
+include_once 'Classes/DatabaseRepository.php';
+include_once 'Types/MessageStatus.php';
+include_once 'Types/Provider.php';
+
 class SmszatorProviderWithTracking extends SmszatorProvider
 {
     /**

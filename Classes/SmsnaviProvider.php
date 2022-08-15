@@ -1,5 +1,11 @@
 <?php
 
+include_once 'BaseProvider.php';
+include_once 'Classes/HTTPSender.php';
+include_once 'Classes/DatabaseRepository.php';
+include_once 'Types/MessageStatus.php';
+include_once 'Types/Provider.php';
+
 class SmsnaviProvider extends BaseProvider
 {
     const REQUEST_URL_SEND = 'http://smsnavi.ru/send/';
