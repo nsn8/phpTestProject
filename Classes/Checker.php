@@ -1,6 +1,7 @@
 <?php
 
-include 'Classes/DatabaseManager.php';
+include 'Classes/SmszatorProvider.php';
+include 'Classes/SmsnaviProvider.php';
 
 class Checker
 {
