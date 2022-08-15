@@ -1,27 +1,35 @@
 <?php
 
-include 'Classes/DatabaseManager.php';
-include 'Classes/SmszatorManager.php';
-include 'Classes/SmsnaviManager.php';
+include 'Classes/DatabaseRepository.php';
+include 'Classes/SmszatorProvider.php';
+include 'Classes/SmsnaviProvider.php';
 
 class Sender
 {
-    private DatabaseManager $databaseManager;
+    private DatabaseRepository $databaseRepository;
 
-    private SmszatorManager $smszator;
+    private SmszatorProvider $smszator;
 
-    private SmsnaviManager $smsnavi;
+    private SmsnaviProvider $smsnavi;
 
-    public function __construct()
+    /**
+     * @param DatabaseRepository $databaseRepository
+     * @param SmszatorProvider $smszator
+     * @param SmsnaviProvider $smsnavi
+     */
+    public function __construct(DatabaseRepository $databaseRepository, SmszatorProvider $smszator, SmsnaviProvider $smsnavi)
     {
-        $this->databaseManager = new DatabaseManager();
-        $this->smszator = new SmszatorManager();
-        $this->smsnavi = new SmsnaviManager();
+        $this->databaseRepository = $databaseRepository;
+        $this->smszator = $smszator;
+        $this->smsnavi = $smsnavi;
     }
 
-    public function sendMessages(int $wantSmsIds = 0)
+    /**
+     * Отправляет сообщения
+     */
+    public function sendMessages()
     {
-        $rawMessageTexts = $this->databaseManager->getMessagesForSending();
+        $rawMessageTexts = $this->databaseRepository->getMessagesForSending();
 
         $messageIds = [];
 
@@ -29,7 +37,7 @@ class Sender
             $messageIds[$value['id']] = $value['text'];
         }
 
-        $this->smszator->sendMessages($messageIds, $wantSmsIds);
+        $this->smszator->sendMessages($messageIds);
         $this->smsnavi->sendMessages($messageIds);
     }
 }

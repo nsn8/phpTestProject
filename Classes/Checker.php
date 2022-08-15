@@ -1,22 +1,26 @@
 <?php
 
 include 'Classes/DatabaseManager.php';
-include 'Classes/SmszatorManager.php';
-include 'Classes/SmsnaviManager.php';
 
 class Checker
 {
-    private SmszatorManager $smszator;
+    private SmszatorProvider $smszator;
 
-    private SmsnaviManager $smsnavi;
+    private SmsnaviProvider $smsnavi;
 
-    public function __construct()
+    /**
+     * @param SmszatorProvider $smszator
+     * @param SmsnaviProvider $smsnavi
+     */
+    public function __construct(SmszatorProvider $smszator, SmsnaviProvider $smsnavi)
     {
-        $this->databaseManager = new DatabaseManager();
-        $this->smszator = new SmszatorManager();
-        $this->smsnavi = new SmsnaviManager();
+        $this->smszator = $smszator;
+        $this->smsnavi = $smsnavi;
     }
 
+    /**
+     * Проверяет статус сообщений
+     */
     public function checkMessages()
     {
         $this->smszator->checkMessages();
